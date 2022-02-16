@@ -1,0 +1,20 @@
+-- Table: public.tb_integrantes
+
+-- DROP TABLE IF EXISTS public.tb_integrantes;
+
+CREATE TABLE IF NOT EXISTS public.tb_integrantes
+(
+    id bigint NOT NULL DEFAULT nextval('tb_integrantes_id_seq'::regclass),
+    excluido boolean NOT NULL DEFAULT false,
+    nome character varying(200) COLLATE pg_catalog."default",
+    cpf character varying(20) COLLATE pg_catalog."default",
+    email character varying(100) COLLATE pg_catalog."default",
+    celular character varying(20) COLLATE pg_catalog."default",
+    data_criacao timestamp without time zone,
+    CONSTRAINT tb_integrantes_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tb_integrantes
+    OWNER to postgres;

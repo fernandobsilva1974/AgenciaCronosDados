@@ -1,0 +1,18 @@
+-- Table: public.tb_servicos
+
+-- DROP TABLE IF EXISTS public.tb_servicos;
+
+CREATE TABLE IF NOT EXISTS public.tb_servicos
+(
+    id bigint NOT NULL DEFAULT nextval('tb_servicos_id_seq'::regclass),
+    excluido boolean NOT NULL DEFAULT false,
+    cod_servico character varying(50) COLLATE pg_catalog."default",
+    desc_servico character varying(1000) COLLATE pg_catalog."default",
+    data_criacao timestamp without time zone,
+    CONSTRAINT tb_servicos_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tb_servicos
+    OWNER to postgres;

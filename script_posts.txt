@@ -1,0 +1,19 @@
+-- Table: public.tb_posts
+
+-- DROP TABLE IF EXISTS public.tb_posts;
+
+CREATE TABLE IF NOT EXISTS public.tb_posts
+(
+    id bigint NOT NULL DEFAULT nextval('tb_posts_id_seq'::regclass),
+    numero integer,
+    titulo character varying(200) COLLATE pg_catalog."default",
+    descritivo text COLLATE pg_catalog."default",
+    data_criacao timestamp without time zone,
+    excluido boolean NOT NULL DEFAULT false,
+    CONSTRAINT tb_posts_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tb_posts
+    OWNER to postgres;
